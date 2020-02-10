@@ -6,8 +6,10 @@ html {
   color: #999;
 }
 
-input:invalid,
-input[type="checkbox"]:invalid + label::before {
+.is-validated input:invalid,
+.is-validated input[type="checkbox"]:invalid + label::before,
+.is-validated:invalid,
+.is-validated[type="checkbox"]:invalid + label::before {
   border-color: #f33;
 }
 
@@ -17,7 +19,11 @@ input[type="checkbox"]:invalid + label::before {
   color: #c33;
 }
 
-.error-message-highlighted {
+.is-validated > .error-message:first-child,
+.is-validated input:invalid + .error-message,
+.is-validated input:invalid + label + .error-message,
+.is-validated:invalid + .error-message,
+.is-validated:invalid + label + .error-message {
   background-color: #c33;
   color: #fff;
 }
